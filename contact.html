@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Mishwa Patel | Contact Me</title>
+</head>
+<body>
+    <div class="nav">
+        <div class="title1" style="color:#8585ad;">
+            <h1>Portfolio</h1>
+        </div>
+        <div class="links">
+            <ul>
+                <a href="index.html"><li style="color:#8585ad ; font-size: x-large;">Home</li></a>
+                <a href="resume.html"><li style="color:#8585ad ; font-size: x-large;">Resume</li></a>
+                <a href="projects.html"><li style="color:#8585ad ; font-size: x-large;">Projects</li></a>
+                <a href="about.html"><li style="color:#8585ad ; font-size: x-large;">About Me</li></a>
+                <a href="contact.html"><li style="color:#8585ad ; font-size: x-large;">Contact Me</li></a>
+            </ul>
+        </div>
+    </div>
+    <div class="getintouch">
+        <h1>Get In Touch With Me</h1>
+        <div class="get">
+            <img src="contact.png" alt="" width="300px" height="230px">
+            <div class="condet">
+                <p>Email Address - <a href="mailto:mishwa.patel@torontomu.ca" target=_blank title = "Takes you to email" style="color: #fff;">mishwa.patel@torontomu.ca</a></p>
+                <p>Contact No. - +1 (437) 429-4219</p>
+                <p>Linked in - <a href="https://www.linkedin.com/in/mishwapatel/" style="color: #fff; text-decoration: none;">mishwapatel</a></p>
+                <p>GitHub - <a href="https://github.com/mishwapatel1512?tab=projects" style="color: #fff; text-decoration: none;">mishwapatel1512</a></p>
+                <p>Address - Scarborough, ON, Toronto</p>
+            </div> 
+        </div>
+    </div>
+        <div class="maildet">
+            <div class="continfo">
+                <h1>Contact Me</h1>
+                <form name="submit-to-google-sheet">
+                <input type="text" name="Name" id="" placeholder="Enter your name">
+                <input type="text" name="Email" id="" placeholder="Enter your e-mail address">
+                <input type="text" name="Title" id="" placeholder="Enter the subject">
+                <textarea name="Body" id="" cols="79" rows="5"placeholder="Enter the text"></textarea>
+                <a href="mailto:mishwa.patel@torontomu.ca"><button>Contact Me</button></a>
+                </form>
+                <span id="msg"></span>
+            </div>
+            <div class="img2">
+                <img src="mish3.jpg" alt="" width="300px" height="300px">
+            </div>
+        </div>
+        <script>
+            const scriptURL = 'https://script.google.com/macros/s/AKfycbyLHG3sq_bkxZjBeBPFFrPl0N3M_kmYh6x0dTbQJIIyvYg5EzB-eyE7JyY8oVw9UUxQ/exec'
+            const form = document.forms['submit-to-google-sheet']
+            const msg = document.getElementById("msg")
+          
+            form.addEventListener('submit', e => {
+              e.preventDefault()
+              fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+                .then(response => {
+                    msg.innerHTML = "Message sent and stored sucessfully!"
+                    setTimeout(function(){
+                        msg.innerHTML = ""
+                    },5000)
+                    form.reset()
+                })
+                .catch(error => console.error('Error!', error.message))
+            })
+          </script>
+    <!-- </div> -->
+    <!-- <img src="cv7.png" alt="" width="500px" height="300px"> -->
+</body>
+</html>
